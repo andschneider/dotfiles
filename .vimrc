@@ -12,13 +12,14 @@ colorscheme gruvbox
 set background=dark
 
 " Editor niceness
-set spell               " turn on spell check
+set spell		" turn on spell check
 set number              " turn on line numbers
 set ruler               " show the cursor position all the time
 set showcmd             " display incomplete commands
 set cursorline          " highlight the current line
 set showmatch           " highlight matching [{( )}]
-
+set splitright          " vertical windows split to right
+set splitbelow          " horizontal windows split to bottom
 set incsearch           " do incremental searching
 set hls                 " turn on highlighting
 
