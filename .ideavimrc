@@ -1,0 +1,80 @@
+""" Map leader to comma ---------------------
+let mapleader=","
+
+""" Plugins  --------------------------------
+set surround
+set multiple-cursors
+set commentary
+set argtextobj
+set textobj-entire
+set ReplaceWithRegister
+
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+
+""" Common settings -------------------------
+set showmode
+set showcmd
+set so=5
+set incsearch
+set number
+set relativenumber
+set timeoutlen=650 " So keyboard multimappings work
+set visualbell
+
+""" Idea specific settings ------------------
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+
+""" Mappings --------------------------------
+map \r :action ReformatCode<CR>
+map <leader>r :action RenameElement<CR>
+map <leader>z :action ToggleDistractionFreeMode<CR>
+map <leader>x :action ToggleFullScreen<CR>
+
+" Debug
+map \d :action Debug<CR>
+map \c :action Stop<CR>
+map \b :action ToggleLineBreakpoint<CR>
+
+" Nav
+map <leader>o :action FileStructurePopup<CR>
+nnoremap <leader>po :action ManageRecentProjects<CR>
+nnoremap <leader>pc :action CloseProject<CR>
+nnoremap <leader>fn :action ShowNavBar<CR>
+
+nnoremap <leader>tt :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>pw :action ActivateProjectToolWindow<CR>
+nnoremap <leader>hw :action HideActiveWindow<CR>
+nnoremap <leader>ha :action HideAllWindows<CR>
+
+" Find and replace
+nnoremap <leader>ff :action Find<CR>
+nnoremap <leader>rr :action Replace<CR>
+
+" Buffer switching and removal
+nnoremap <leader>bb :action RecentFiles<CR>
+nnoremap <leader>bd :q<CR>
+nnoremap <leader>bl :action NextTab<CR>
+nnoremap <leader>bh :action PreviousTab<CR>
+nnoremap <leader>bo :action CloseAllEditorsButActive<CR>
+
+" Previous Tab
+nnoremap <leader>bj :action PreviousTab<CR>
+vnoremap <leader>bj <Esc>:action PreviousTab<CR>
+
+" Window movement
+map <leader>wv :vsplit<CR>
+map <leader>ws :split<CR>
+map <leader>wd <C-W>c
+map <leader>ww <C-W>w
+map <leader>wl <C-W>l
+map <leader>wh <C-W>h
+map <leader>wk <C-W>k
+map <leader>wj <C-W>j
+map <leader>wo <C-W>o
+
+" Shortcuts for this config file
+map <leader>ce :edit ~/.ideavimrc<CR>
+map <leader>cs :source ~/.ideavimrc<CR>
