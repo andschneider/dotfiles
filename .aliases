@@ -42,5 +42,10 @@ alias kei='kubectl exec -it'
 
 # docker
 alias dc='docker-compose'
-alias dca='docker container ls -a'
+alias dls='docker container ls -a'
 alias dia='docker image ls -a'
+alias dk='docker'
+
+alias t1='tree -L 1'
+alias t2='tree -L 2'
+
