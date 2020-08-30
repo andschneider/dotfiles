@@ -8,6 +8,7 @@ set commentary
 set argtextobj
 set textobj-entire
 set ReplaceWithRegister
+set highlightedyank
 
 """ Plugin settings -------------------------
 let g:argtextobj_pairs="[:],(:),<:>"

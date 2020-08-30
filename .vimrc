@@ -58,6 +58,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'fatih/vim-go'
+Plugin 'machakann/vim-highlightedyank'
+Plugin 'preservim/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
@@ -67,6 +69,10 @@ Plugin 'w0rp/ale'
 call vundle#end()
 
 filetype plugin indent on
+
+" quit vim if Nerdtree is only buffer open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map <silent> <C-t> :NERDTreeToggle<CR>
 
 map <silent> <C-g> :GitGutterToggle<CR>
 nmap <silent> [W <Plug>(ale_first)
