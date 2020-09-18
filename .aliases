@@ -19,26 +19,39 @@ alias gcm='git commit -m'
 alias gf='git fetch'
 alias gp='git pull'
 
-# move upwards conveniences
+# directory things
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
 alias ll='ls -lh'
 alias la='ls -la'
+alias t1='tree -L 1'
+alias t2='tree -L 2'
 
 # kubernetes
 alias kcl='kubectl'
 alias kg='kubectl get'
-alias kgp='kubectl get pods'
+
 alias kd='kubectl describe'
+alias kgp='kubectl get pods'
+alias kdp='kubectl describe pods'
+
+alias kgc='kubectl get configmaps'
+alias kdc='kubectl describe configmap'
+
+alias kgi='kubectl get ingress'
+alias kdi='kubectl describe ingress'
+
 alias kl='kubectl logs'
 alias klf='kubectl logs -f'
 alias kpf='kubectl port-forward'
-alias kaf='kubectl apply -f'
-alias kdf='kubectl delete -f'
 alias ke='kubectl exec'
 alias kei='kubectl exec -it'
+
+alias kaf='kubectl apply -f'
+alias kdf='kubectl delete -f'
+alias kdl='kubectl delete'
 
 # docker
 alias dc='docker-compose'
@@ -46,6 +59,7 @@ alias dls='docker container ls -a'
 alias dia='docker image ls -a'
 alias dk='docker'
 
-alias t1='tree -L 1'
-alias t2='tree -L 2'
+# make
+alias vm='vim Makefile'
+alias m='make'
 
