@@ -57,6 +57,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'fatih/vim-go'
 Plugin 'machakann/vim-highlightedyank'
 Plugin 'preservim/nerdtree'
@@ -73,6 +74,7 @@ filetype plugin indent on
 " quit vim if Nerdtree is only buffer open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <silent> <C-t> :NERDTreeToggle<CR>
+map <silent> <C-t><C-r> :NERDTreeRefreshRoot<CR>
 
 map <silent> <C-g> :GitGutterToggle<CR>
 nmap <silent> [W <Plug>(ale_first)
