@@ -55,7 +55,9 @@ alias kdl='kubectl delete'
 
 # docker
 alias dc='docker-compose'
-alias dls='docker container ls -a'
+alias dls='docker container ls'
+alias dlss='docker container list --format "table {{.Names}}\t{{.Status}}\t{{.Image}}"'
+alias dlsa='docker container ls -a'
 alias dia='docker image ls -a'
 alias dk='docker'
 
