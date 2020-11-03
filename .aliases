@@ -26,8 +26,9 @@ alias ....='cd ../../..'
 
 alias ll='ls -lh'
 alias la='ls -la'
-alias t1='tree -L 1'
-alias t2='tree -L 2'
+alias t='tree -L 1'
+alias tt='tree -L 2'
+alias ttt='tree -L 3'
 
 # kubernetes
 alias kcl='kubectl'
