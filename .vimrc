@@ -14,6 +14,7 @@ set background=dark
 " Editor niceness
 set spell		" turn on spell check
 set number              " turn on line numbers
+set relativenumber      " show relative line numbers
 set ruler               " show the cursor position all the time
 set showcmd             " display incomplete commands
 set cursorline          " highlight the current line
@@ -30,15 +31,10 @@ set nrformats=
 
 " MAPPINGS
 :let mapleader = ","
-:nnoremap <leader>d dd
-
-" turn off search highlight manually
-nnoremap <leader><space> :nohlsearch<CR>
-
-" Create a mapping to help run Python scripts.
-map <F5> :w<CR>:!python3 %<CR>
-" could also do :w <bar> :!python3 %
-map <F6> :!clear<CR><CR>
+:nnoremap <leader>d dd                   " delete line
+nnoremap <leader><space> :nohlsearch<CR> " turn off search highlight manually
+:nnoremap <leader>w :set wrap!<CR>       " toggle line wrap
+:nnoremap <leader>8 :set colorcolumn=80<CR> " add bar at 80 character width
 
 " Save 200 lines of command history.
 set history=200
@@ -65,6 +61,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-fugitive'
 Plugin 'w0rp/ale'
 
 call vundle#end()
