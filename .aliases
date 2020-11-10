@@ -7,10 +7,9 @@ alias de='deactivate'
 alias jupy='cd ~/Github/jupy && source venv/bin/activate && jupyter lab'
 
 # git
-alias cdg='cd ~/Github'
 alias g='git'
 alias gd='git diff'
-alias gd='git diff --staged'
+alias gds='git diff --staged'
 alias gst='git status'
 alias gss='git status -s'
 alias ga='git add'
@@ -20,6 +19,9 @@ alias gf='git fetch'
 alias gp='git pull'
 
 # directory things
+alias cdg='cd ~/Github'
+alias cdd='cd ~/Github/dotfiles'
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -65,4 +67,7 @@ alias dk='docker'
 # make
 alias vm='vim Makefile'
 alias m='make'
+
+# vim
+alias v='vim'
 
