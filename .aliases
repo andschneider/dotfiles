@@ -71,3 +71,6 @@ alias m='make'
 # vim
 alias v='vim'
 
+# general
+alias update='sudo apt update && sudo apt upgrade -y'
+
