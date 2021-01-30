@@ -71,6 +71,17 @@ alias m='make'
 # vim
 alias v='vim'
 
+# tmux
+# list the available sessions if an arg isn't passed in, otherwise try to
+# attach to it
+function tls() {
+  if [[ -z "$1" ]] ; then
+    tmux list-sessions
+  else
+    tmux attach-session -t $1
+  fi
+}
+
 # general
 alias update='sudo apt update && sudo apt upgrade -y'
 
