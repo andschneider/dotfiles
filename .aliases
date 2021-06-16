@@ -1,3 +1,19 @@
+# vim
+alias vim='nvim'  # so it begins..
+alias v='vim'
+alias vr='vim README.md'
+
+# tmux
+# list the available sessions if an arg isn't passed in, otherwise try to
+# attach to it
+function tls() {
+  if [[ -z "$1" ]] ; then
+    tmux list-sessions
+  else
+    tmux attach-session -t $1
+  fi
+}
+
 # python venv conveniences 
 alias venv='python3 -m venv venv && source venv/bin/activate && pip install --upgrade pip setuptools -q'
 alias ae='source venv/bin/activate'
@@ -17,6 +33,7 @@ alias gaa='git add --all'
 alias gcm='git commit -m'
 alias gf='git fetch'
 alias gp='git pull'
+alias gane='git commit --amend --no-edit'
 
 # directory things
 alias cdg='cd ~/Github'
@@ -68,19 +85,13 @@ alias dk='docker'
 alias vm='vim Makefile'
 alias m='make'
 
-# vim
-alias v='vim'
-
-# tmux
-# list the available sessions if an arg isn't passed in, otherwise try to
-# attach to it
-function tls() {
-  if [[ -z "$1" ]] ; then
-    tmux list-sessions
-  else
-    tmux attach-session -t $1
-  fi
-}
+# cargo
+alias ct='cargo test'
+alias cc='cargo check'
+alias cy='cargo clippy'
+alias cr='cargo run'
+alias cb='cargo build'
+alias cbr='cargo build --release'
 
 # general
 alias update='sudo apt update && sudo apt upgrade -y'
