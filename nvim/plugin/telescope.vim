@@ -1,4 +1,4 @@
- lua require("a.telescope")
+lua require("a.telescope")
 
 " dotfiles
 nnoremap <silent> <leader>vrc :lua require('a.telescope').search_dotfiles()<CR>

@@ -20,6 +20,11 @@ syntax on               " turn on syntax highlighting
 " Padded numbers are treated as decimals. e.g. 008 is treated as 8.0
 set nrformats=
 
+augroup highlight_yank
+  autocmd!
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 500})
+augroup END
+
 " MAPPINGS
 :let mapleader = ","
 :nnoremap <leader>d dd                   " delete line
@@ -57,7 +62,10 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-treesitter/nvim-treesitter'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground', { 'on': 'TSPlaygroudToggle' }
+
 
 Plug 'morhetz/gruvbox'
 call plug#end()
@@ -67,6 +75,9 @@ filetype plugin indent on
 " Color Themes
 colorscheme gruvbox
 set background=dark
+
+" Load configurations
+lua require("config.treesitter")
 
 " quit vim if Nerdtree is only buffer open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
