@@ -22,15 +22,18 @@ set nrformats=
 
 augroup highlight_yank
   autocmd!
-  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 500})
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 300})
 augroup END
 
 " MAPPINGS
 :let mapleader = ","
-:nnoremap <leader>d dd                   " delete line
-nnoremap <leader><space> :nohlsearch<CR> " turn off search highlight manually
-:nnoremap <leader>w :set wrap!<CR>       " toggle line wrap
+:nnoremap <leader>d dd                      " delete line
+nnoremap <leader><space> :nohlsearch<CR>    " turn off search highlight manually
+:nnoremap <leader>w :set wrap!<CR>          " toggle line wrap
 :nnoremap <leader>8 :set colorcolumn=80<CR> " add bar at 80 character width
+
+nnoremap <C-m> <C-W>\|<C-W>_                " maximize current split
+nnoremap <C-W>m <C-W>=                      " restore splits to equal size
 
 map <silent> <C-t> :NERDTreeToggle<CR>
 map <silent> <C-t><C-r> :NERDTreeRefreshRoot<CR>
@@ -52,7 +55,9 @@ set statusline+=\ %3p%%   " percentage through file
 call plug#begin()
 Plug 'airblade/vim-gitgutter'
 " Plug 'AndrewRadev/splitjoin.vim'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
