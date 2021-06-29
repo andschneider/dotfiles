@@ -63,9 +63,12 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
+Plug 'hrsh7th/nvim-compe'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/lsp_extensions.nvim'
+
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground', { 'on': 'TSPlaygroudToggle' }
-
 
 Plug 'morhetz/gruvbox'
 call plug#end()
@@ -77,6 +80,8 @@ colorscheme gruvbox
 set background=dark
 
 " Load configurations
+lua require("config.compe")
+lua require("config.lspconfig")
 lua require("config.treesitter")
 
 " quit vim if Nerdtree is only buffer open
