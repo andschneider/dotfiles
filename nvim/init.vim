@@ -32,8 +32,10 @@ nnoremap <leader><space> :nohlsearch<CR>    " turn off search highlight manually
 :nnoremap <leader>w :set wrap!<CR>          " toggle line wrap
 :nnoremap <leader>8 :set colorcolumn=80<CR> " add bar at 80 character width
 
-nnoremap <C-m> <C-W>\|<C-W>_                " maximize current split
-nnoremap <C-W>m <C-W>=                      " restore splits to equal size
+" truezen
+nnoremap <C-m> :TZFocus<CR>          " toggle "full screen"
+nnoremap <leader>z :TZAtaraxis<CR>   " toggle zen mode
+nnoremap <leader>c :TZMinimalist<CR> " toggle minimal mode
 
 map <silent> <C-t> :NERDTreeToggle<CR>
 map <silent> <C-t><C-r> :NERDTreeRefreshRoot<CR>
@@ -58,6 +60,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'Pocco81/TrueZen.nvim'
 
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -88,6 +91,7 @@ set background=dark
 lua require("config.compe")
 lua require("config.lspconfig")
 lua require("config.treesitter")
+lua require("config.truezen")
 
 " quit vim if Nerdtree is only buffer open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
