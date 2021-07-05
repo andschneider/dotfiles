@@ -26,6 +26,22 @@ syntax on               " turn on syntax highlighting
 " Padded numbers are treated as decimals. e.g. 008 is treated as 8.0
 set nrformats=
 
+" MAPPINGS
+:let mapleader = ","
+:nnoremap <leader>d dd                   " delete line
+nnoremap <leader><space> :nohlsearch<CR> " turn off search highlight manually
+:nnoremap <leader>w :set wrap!<CR>       " toggle line wrap
+:nnoremap <leader>8 :set colorcolumn=80<CR> " add bar at 80 character width
+
+map <silent> <C-t> :NERDTreeToggle<CR>
+map <silent> <C-t><C-r> :NERDTreeRefreshRoot<CR>
+map <silent> <leader>gg :GitGutterToggle<CR>
+
+nmap <silent> [W <Plug>(ale_first)
+nmap <silent> [w <Plug>(ale_previous)
+nmap <silent> ]w <Plug>(ale_next)
+nmap <silent> ]W <Plug>(ale_last)
+
 " STATUS LINE
 set laststatus=2
 set statusline+=%#GruvboxAquaSign#
@@ -38,13 +54,6 @@ set statusline+=\0x%03B   " as above, in hexadecimal
 set statusline+=%=        " right side settings below:
 set statusline+=\ %c:%l   " column number : line number
 set statusline+=\ %3p%%   " percentage through file
-
-" Change backups to save into /tmp folder
-set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set writebackup
 
 " PLUGINS
 " Set the runtime path to include Vundle and initialize
@@ -69,27 +78,12 @@ call vundle#end()
 
 filetype plugin indent on
 
-" MAPPINGS
-:let mapleader = ","
-:nnoremap <leader>d dd                   " delete line
-nnoremap <leader><space> :nohlsearch<CR> " turn off search highlight manually
-:nnoremap <leader>w :set wrap!<CR>       " toggle line wrap
-:nnoremap <leader>8 :set colorcolumn=80<CR> " add bar at 80 character width
-
-" easier split switching
-nnoremap <C-h> <C-W>h
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-l> <C-W>l
-
 " quit vim if Nerdtree is only buffer open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-map <silent> <C-t> :NERDTreeToggle<CR>
-map <silent> <C-t><C-r> :NERDTreeRefreshRoot<CR>
 
-map <silent> <C-g> :GitGutterToggle<CR>
-
-nmap <silent> [W <Plug>(ale_first)
-nmap <silent> [w <Plug>(ale_previous)
-nmap <silent> ]w <Plug>(ale_next)
-nmap <silent> ]W <Plug>(ale_last)
+" Change backups to save into /tmp folder
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
