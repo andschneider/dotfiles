@@ -5,3 +5,4 @@ setlocal expandtab           " tabs are spaces
 setlocal cindent
 setlocal comments-=://       " turn off comments when entering a new line from a comment
 setlocal comments+=f://
+setlocal commentstring=//\ %s

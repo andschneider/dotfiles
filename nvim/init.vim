@@ -1,12 +1,5 @@
-" Use Vim settings
-set nocompatible
-
 " Allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-
-" Color Themes
-colorscheme gruvbox
-set background=dark
 
 " Editor niceness
 set spell		" turn on spell check
@@ -21,26 +14,32 @@ set splitbelow          " horizontal windows split to bottom
 set incsearch           " do incremental searching
 set hls                 " turn on highlighting
 set history=200         " save 200 lines of command history
+set autowrite           " write modified content on buffer switch or `:make`
 syntax on               " turn on syntax highlighting
 
 " Padded numbers are treated as decimals. e.g. 008 is treated as 8.0
 set nrformats=
 
+augroup highlight_yank
+  autocmd!
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 300})
+augroup END
+
 " MAPPINGS
 :let mapleader = ","
-:nnoremap <leader>d dd                   " delete line
-nnoremap <leader><space> :nohlsearch<CR> " turn off search highlight manually
-:nnoremap <leader>w :set wrap!<CR>       " toggle line wrap
+:nnoremap <leader>d dd                      " delete line
+nnoremap <leader><space> :nohlsearch<CR>    " turn off search highlight manually
+:nnoremap <leader>w :set wrap!<CR>          " toggle line wrap
 :nnoremap <leader>8 :set colorcolumn=80<CR> " add bar at 80 character width
+
+" truezen
+nnoremap <leader>m :TZFocus<CR>      " toggle full screen
+nnoremap <leader>z :TZAtaraxis<CR>   " toggle zen mode
+nnoremap <leader>c :TZMinimalist<CR> " toggle minimal mode
 
 map <silent> <C-t> :NERDTreeToggle<CR>
 map <silent> <C-t><C-r> :NERDTreeRefreshRoot<CR>
 map <silent> <leader>gg :GitGutterToggle<CR>
-
-nmap <silent> [W <Plug>(ale_first)
-nmap <silent> [w <Plug>(ale_previous)
-nmap <silent> ]w <Plug>(ale_next)
-nmap <silent> ]W <Plug>(ale_last)
 
 " STATUS LINE
 set laststatus=2
@@ -55,35 +54,46 @@ set statusline+=%=        " right side settings below:
 set statusline+=\ %c:%l   " column number : line number
 set statusline+=\ %3p%%   " percentage through file
 
-" PLUGINS
-" Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin()
+Plug 'airblade/vim-gitgutter'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'Pocco81/TrueZen.nvim'
+Plug 'sindrets/diffview.nvim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'fatih/vim-go'
-Plugin 'machakann/vim-highlightedyank'
-Plugin 'preservim/nerdtree'
-Plugin 'rust-lang/rust.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-fugitive'
-Plugin 'w0rp/ale'
+Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-call vundle#end()
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+Plug 'hrsh7th/nvim-compe'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/lsp_extensions.nvim'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground', { 'on': 'TSPlaygroudToggle' }
+
+Plug 'morhetz/gruvbox'
+call plug#end()
 
 filetype plugin indent on
 
+" Color Themes
+colorscheme gruvbox
+set background=dark
+
+" Load configurations
+lua require("config.compe")
+lua require("config.lspconfig")
+lua require("config.treesitter")
+lua require("config.truezen")
+
 " quit vim if Nerdtree is only buffer open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Change backups to save into /tmp folder
-set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set writebackup
