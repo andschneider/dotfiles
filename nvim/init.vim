@@ -33,7 +33,7 @@ nnoremap <leader><space> :nohlsearch<CR>    " turn off search highlight manually
 :nnoremap <leader>8 :set colorcolumn=80<CR> " add bar at 80 character width
 
 " truezen
-nnoremap <C-m> :TZFocus<CR>          " toggle "full screen"
+nnoremap <leader>m :TZFocus<CR>      " toggle full screen
 nnoremap <leader>z :TZAtaraxis<CR>   " toggle zen mode
 nnoremap <leader>c :TZMinimalist<CR> " toggle minimal mode
 
@@ -56,11 +56,13 @@ set statusline+=\ %3p%%   " percentage through file
 
 call plug#begin()
 Plug 'airblade/vim-gitgutter'
-" Plug 'AndrewRadev/splitjoin.vim'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'Pocco81/TrueZen.nvim'
+Plug 'sindrets/diffview.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'Pocco81/TrueZen.nvim'
 
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
