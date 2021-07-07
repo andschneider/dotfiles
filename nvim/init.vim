@@ -25,20 +25,6 @@ augroup highlight_yank
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 300})
 augroup END
 
-" MAPPINGS
-:let mapleader = ","
-:nnoremap <leader>d dd                      " delete line
-nnoremap <leader><space> :nohlsearch<CR>    " turn off search highlight manually
-:nnoremap <leader>w :set wrap!<CR>          " toggle line wrap
-:nnoremap <leader>8 :set colorcolumn=80<CR> " add bar at 80 character width
-
-" truezen
-nnoremap <leader>m :TZFocus<CR>      " toggle full screen
-nnoremap <leader>z :TZAtaraxis<CR>   " toggle zen mode
-nnoremap <leader>c :TZMinimalist<CR> " toggle minimal mode
-
-map <silent> <leader>gg :GitGutterToggle<CR>
-
 " STATUS LINE
 set laststatus=2
 set statusline+=%#GruvboxAquaSign#
@@ -86,6 +72,7 @@ colorscheme gruvbox
 set background=dark
 
 " Load configurations
+lua require("a.keymaps")
 lua require("config.compe")
 lua require("config.lspconfig")
 lua require("config.treesitter")
