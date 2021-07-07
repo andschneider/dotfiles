@@ -37,8 +37,6 @@ nnoremap <leader>m :TZFocus<CR>      " toggle full screen
 nnoremap <leader>z :TZAtaraxis<CR>   " toggle zen mode
 nnoremap <leader>c :TZMinimalist<CR> " toggle minimal mode
 
-map <silent> <C-t> :NERDTreeToggle<CR>
-map <silent> <C-t><C-r> :NERDTreeRefreshRoot<CR>
 map <silent> <leader>gg :GitGutterToggle<CR>
 
 " STATUS LINE
@@ -58,7 +56,7 @@ call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'Pocco81/TrueZen.nvim'
 Plug 'sindrets/diffview.nvim'
 Plug 'tpope/vim-commentary'
@@ -66,8 +64,6 @@ Plug 'tpope/vim-surround'
 
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -95,5 +91,3 @@ lua require("config.lspconfig")
 lua require("config.treesitter")
 lua require("config.truezen")
 
-" quit vim if Nerdtree is only buffer open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
