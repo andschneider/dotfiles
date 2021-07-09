@@ -14,7 +14,7 @@ function tls() {
   fi
 }
 
-# python venv conveniences 
+# python venv conveniences
 alias venv='python3 -m venv venv && source venv/bin/activate && pip install --upgrade pip setuptools -q'
 alias ae='source venv/bin/activate'
 alias de='deactivate'
@@ -87,6 +87,8 @@ alias m='make'
 
 # cargo
 alias ct='cargo test'
+alias cta='cargo test --all'
+alias cf='cargo fmt'
 alias cc='cargo check'
 alias cy='cargo clippy'
 alias cr='cargo run'
