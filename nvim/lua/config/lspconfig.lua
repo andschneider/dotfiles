@@ -1,6 +1,6 @@
 local nvim_lsp = require 'lspconfig'
 
--- Rust 
+-- Rust
 -- based on: https://rust-analyzer.github.io/manual.html#rust-analyzer-language-server-binary
 -- https://sharksforarms.dev/posts/neovim-rust/
 nvim_lsp.rust_analyzer.setup({

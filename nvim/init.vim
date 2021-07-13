@@ -51,6 +51,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 
 Plug 'rust-lang/rust.vim'
+Plug 'simrat39/rust-tools.nvim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'nvim-lua/popup.nvim'
@@ -59,7 +60,6 @@ Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'hrsh7th/nvim-compe'
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/lsp_extensions.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground', { 'on': 'TSPlaygroudToggle' }
@@ -77,6 +77,7 @@ set background=dark
 lua require("a.keymaps")
 lua require("config.compe")
 lua require("config.lspconfig")
+lua require("config.rust_tools")
 lua require("config.treesitter")
 lua require("config.truezen")
 

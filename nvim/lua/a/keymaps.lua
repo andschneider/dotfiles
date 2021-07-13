@@ -13,6 +13,8 @@ map('n', '<leader>8', ':set colorcolumn=80<CR>') -- add bar at 80 character widt
 
 map('n', '<leader>gg', ':GitGutterToggle<CR>')
 
+map('n', '<leader>cc', ':cclose<CR>') -- close quickfix list
+
 map('n', '<leader>a', 'DO<Esc>p') -- cut to end of line and paste above
 map('n', '<leader>e', 'DjA<Space><Esc>p') -- cut to end of line and paste at end of line below
 
