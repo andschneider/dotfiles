@@ -73,6 +73,9 @@ filetype plugin indent on
 colorscheme gruvbox
 set background=dark
 
+" highlight whitespace in markdown files, though stripping remains disabled by the blacklist
+:autocmd FileType markdown EnableWhitespace
+
 " Load configurations
 lua require("a.keymaps")
 lua require("config.compe")

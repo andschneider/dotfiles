@@ -6,7 +6,7 @@ local opts = {
         -- opened file. For now, write to the file to trigger a reapplication of
         -- the hints or just run :RustSetInlayHints.
         -- default: true
-        autoSetHints = true,
+        autoSetHints = false,
 
         -- whether to show hover actions inside the hover window
         -- this overrides the default hover handler so something like lspsaga.nvim's hover would be overriden by this

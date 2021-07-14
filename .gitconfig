@@ -2,6 +2,6 @@
   name = Andrew Schneider
   email = andjschneider@gmail.com
 [core]
-  editor = /usr/bin/nvim
+  editor = nvim
 [init]
   defaultBranch = main
