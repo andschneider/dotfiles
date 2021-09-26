@@ -80,6 +80,7 @@ set background=dark
 lua require("a.keymaps")
 lua require("config.compe")
 lua require("config.lspconfig")
+lua require("config.nvimtree")
 lua require("config.rust_tools")
 lua require("config.treesitter")
 lua require("config.truezen")
