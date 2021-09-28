@@ -14,6 +14,19 @@ nvim_lsp.rust_analyzer.setup({
     }
 })
 
+-- Go
+-- settings: https://go.googlesource.com/tools/+/refs/heads/master/gopls/doc/settings.md
+nvim_lsp.gopls.setup({
+    on_attach = on_attach,
+    cmd = {"gopls", "-remote=auto"},
+    settings = {
+        ["gopls"] = {
+	    analyses = {unusedparams = true},
+            usePlaceholders = true,
+        },
+    },
+})
+
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,

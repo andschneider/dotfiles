@@ -8,6 +8,9 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Add Go and `go install` directory to path
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(git zsh-autosuggestions history-substring-search)
