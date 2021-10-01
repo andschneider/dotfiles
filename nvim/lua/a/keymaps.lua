@@ -18,6 +18,9 @@ map('n', '<leader>cc', ':cclose<CR>') -- close quickfix list
 map('n', '<leader>a', 'DO<Esc>p') -- cut to end of line and paste above
 map('n', '<leader>e', 'DjA<Space><Esc>p') -- cut to end of line and paste at end of line below
 
+map('n', 'H', '^') -- move to start of line
+map('n', 'L', '$') -- move to end of line
+
 -- truezen
 map('n', '<leader>m', ':TZFocus<CR>') -- toggle full screen
 map('n', '<leader>z', ':TZAtaraxis<CR>') -- toggle zen mode
