@@ -18,6 +18,9 @@ plugins=(git zsh-autosuggestions history-substring-search)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+# load aliases that aren't tracked in git
+USER_CONFIG=$HOME/.config/andrew/.aliases
+[[ -f $USER_CONFIG ]] && source $USER_CONFIG
 
 # set up a nice history
 HIST_STAMPS="yyyy-mm-dd"
