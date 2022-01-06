@@ -1,32 +1,61 @@
+-- following options are the default
+-- each of these are documented in `:help nvim-tree.OPTION_NAME`
 require'nvim-tree'.setup {
-  disable_netrw       = true, -- disables netrw completely
-  hijack_netrw        = true, -- hijack netrw window on startup
-  open_on_setup       = true, -- open the tree when running this setup function
-  ignore_ft_on_setup  = {},   -- will not open on setup if the filetype is in this list
-  auto_close          = true, -- closes neovim automatically when the tree is the last **WINDOW** in the view
-  open_on_tab         = false, -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
-  hijack_cursor       = false, -- hijack the cursor in the tree to put it at the start of the filename
-  update_cwd          = false, -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
-  lsp_diagnostics     = true, -- show lsp diagnostics in the signcolumn
-  -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
+  disable_netrw       = true,
+  hijack_netrw        = true,
+  open_on_setup       = false,
+  ignore_ft_on_setup  = {},
+  auto_close          = true,
+  open_on_tab         = false,
+  hijack_cursor       = false,
+  update_cwd          = false,
+  update_to_buf_dir   = {
+    enable = true,
+    auto_open = true,
+  },
+  diagnostics = {
+    enable = true,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    }
+  },
   update_focused_file = {
-    enable      = false, -- enables the feature
+    enable      = false,
     update_cwd  = false,
     ignore_list = {}
   },
-  -- configuration options for the system open command (`s` in the tree by default)
   system_open = {
     cmd  = nil,
     args = {}
   },
+  filters = {
+    dotfiles = true,
+    custom = {}
+  },
+  git = {
+    enable = true,
+    ignore = true,
+    timeout = 500,
+  },
   view = {
     width = 30,
+    height = 30,
+    hide_root_folder = false,
     side = 'left',
     auto_resize = false,
     mappings = {
       custom_only = false,
       list = {}
-    }
+    },
+    number = false,
+    relativenumber = false,
+    signcolumn = "yes"
+  },
+  trash = {
+    cmd = "trash",
+    require_confirm = true
   }
 }
-
