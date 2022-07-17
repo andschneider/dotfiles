@@ -57,6 +57,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-ui-select.nvim'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -90,6 +91,7 @@ lua require("config.cmp")
 lua require("config.lspconfig")
 lua require("config.nvimtree")
 lua require("config.rust_tools")
+lua require("config.telescope")
 lua require("config.treesitter")
 lua require("config.truezen")
 
