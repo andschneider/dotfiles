@@ -24,7 +24,7 @@ USER_CONFIG=$HOME/.config/andrew/.aliases
 
 # set up a nice history
 HIST_STAMPS="yyyy-mm-dd"
-alias hg="history | grep"
+alias hg="history | rg"
 export HISTSIZE=100000
 export HISTFILESIZE=100000
 export HISTFILE=~/.zsh_history

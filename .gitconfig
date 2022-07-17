@@ -3,6 +3,7 @@
   email = andjschneider@gmail.com
 [core]
   editor = nvim
+  excludesfile = /Users/andrew/.gitignore_global
 [init]
   defaultBranch = main
 [pull]
