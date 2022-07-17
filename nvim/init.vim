@@ -57,9 +57,15 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-ui-select.nvim'
 
-Plug 'hrsh7th/nvim-compe'
 Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground', { 'on': 'TSPlaygroudToggle' }
@@ -69,19 +75,23 @@ call plug#end()
 
 filetype plugin indent on
 
+" Needed for nvim-cmp
+set completeopt=menu,menuone,noselect
+
 " Color Themes
 colorscheme gruvbox
 set background=dark
 
-" highlight whitespace in markdown files, though stripping remains disabled by the blacklist
+" Highlight whitespace in markdown files, though stripping remains disabled by the blacklist
 :autocmd FileType markdown EnableWhitespace
 
 " Load configurations
 lua require("a.keymaps")
-lua require("config.compe")
+lua require("config.cmp")
 lua require("config.lspconfig")
 lua require("config.nvimtree")
 lua require("config.rust_tools")
+lua require("config.telescope")
 lua require("config.treesitter")
 lua require("config.truezen")
 

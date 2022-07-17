@@ -98,3 +98,6 @@ alias cbr='cargo build --release'
 # general
 alias update='sudo apt update && sudo apt upgrade -y'
 
+# ripgrep
+alias rga='rg -A 1'
+alias rgb='rg -B 1'
