@@ -11,9 +11,6 @@ nnoremap <silent> <leader>n5 :lua require'nvim-tree.view'.View.width = 50<CR>
 " this variable must be enabled for colors to be applied properly
 set termguicolors
 
-" a list of groups can be found at `:help nvim_tree_highlight`
-highlight NvimTreeFolderIcon guibg=blue
-
 let g:nvim_tree_auto_ignore_ft = [ 'startify', 'dashboard' ] "empty by default, don't auto open tree on specific filetypes.
 let g:nvim_tree_quit_on_open = 0 "0 by default, closes the tree when you open a file
 let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open

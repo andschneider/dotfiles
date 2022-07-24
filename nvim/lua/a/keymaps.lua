@@ -25,3 +25,12 @@ map('n', 'L', '$') -- move to end of line
 map('n', '<leader>m', ':TZFocus<CR>') -- toggle full screen
 map('n', '<leader>z', ':TZAtaraxis<CR>') -- toggle zen mode
 map('n', '<leader>c', ':TZMinimalist<CR>') -- toggle minimal mode
+
+map('n', '<leader>rr', ':RustRunnables<CR>')
+
+vim.keymap.set(
+  "",
+  "<Leader>l",
+  require("lsp_lines").toggle,
+  { desc = "Toggle lsp_lines" }
+)
