@@ -95,12 +95,6 @@ lua require("plugin.nvimtree")
 lua require("plugin.rust_tools")
 lua require("plugin.telescope")
 lua require("plugin.treesitter")
+lua require("plugin.trouble")
 lua require("plugin.truezen")
 
-lua << EOF
-  require("trouble").setup {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  }
-EOF
