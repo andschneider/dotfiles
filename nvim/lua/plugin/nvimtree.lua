@@ -53,3 +53,6 @@ require'nvim-tree'.setup {
     require_confirm = true
   }
 }
+
+-- enable colors
+vim.opt.termguicolors = true

@@ -88,14 +88,14 @@ set background=dark
 :autocmd FileType markdown EnableWhitespace
 
 " Load configurations
-lua require("a.keymaps")
-lua require("config.cmp")
-lua require("config.lspconfig")
-lua require("config.nvimtree")
-lua require("config.rust_tools")
-lua require("config.telescope")
-lua require("config.treesitter")
-lua require("config.truezen")
+lua require("custom.keymaps")
+lua require("plugin.cmp")
+lua require("plugin.lspconfig")
+lua require("plugin.nvimtree")
+lua require("plugin.rust_tools")
+lua require("plugin.telescope")
+lua require("plugin.treesitter")
+lua require("plugin.truezen")
 
 lua << EOF
   require("trouble").setup {
