@@ -4,7 +4,7 @@ set colorcolumn=100        " add bar at 100 character width
 
 " turn on inlay hints manually as they don't show up automatically on file open
 :nnoremap <silent> <leader>h :RustSetInlayHints<CR>
+:nnoremap <silent> <leader>ht :RustUnsetInlayHints<CR>
 
-:nnoremap <silent> <leader>ht :RustToggleInlayHints<CR>
 :nnoremap <silent> <F5> :RustRunnables<CR> " open runnables in telescope
 :nnoremap <silent> <leader>oc :RustOpenCargo<CR>

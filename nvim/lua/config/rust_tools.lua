@@ -1,45 +1,24 @@
 -- https://github.com/simrat39/rust-tools.nvim
 local opts = {
     tools = { -- rust-tools options
-        -- automatically set inlay hints (type hints)
-        -- There is an issue due to which the hints are not applied on the first
-        -- opened file. For now, write to the file to trigger a reapplication of
-        -- the hints or just run :RustSetInlayHints.
-        -- default: true
-        autoSetHints = true,
-
-        -- whether to show hover actions inside the hover window
-        -- this overrides the default hover handler so something like lspsaga.nvim's hover would be overriden by this
-        -- default: true
-        hover_with_actions = true,
+	-- automatically call RustReloadWorkspace when writing to a Cargo.toml file.
+        reload_workspace_from_cargo_toml = false,
 
         -- These apply to the default RustSetInlayHints command
         inlay_hints = {
+	    -- automatically set inlay hints (type hints)
+	    auto = true,
 
             -- Only show inlay hints for the current line
             only_current_line = false,
 
-            -- Event which triggers a refersh of the inlay hints.
-            -- You can make this "CursorMoved" or "CursorMoved,CursorMovedI" but
-            -- not that this may cause higher CPU usage.
-            -- This option is only respected when only_current_line and
-            -- autoSetHints both are true.
-            only_current_line_autocmd = "CursorHold",
-
             -- whether to show parameter hints with the inlay hints or not
-            -- default: true
             show_parameter_hints = true,
 
-            -- whether to show variable name before type hints with the inlay hints or not
-            -- default: false
-            show_variable_name = false,
-
             -- prefix for parameter hints
-            -- default: "<-"
             parameter_hints_prefix = "<- ",
 
             -- prefix for all the other hints (type, chaining)
-            -- default: "=>"
             other_hints_prefix = "=> ",
 
             -- whether to align to the lenght of the longest line in the file
@@ -77,7 +56,9 @@ local opts = {
     -- all the opts to send to nvim-lspconfig
     -- these override the defaults set by rust-tools.nvim
     -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
-    server = {} -- rust-analyer options
+    server = {
+      standalone = true,
+    } -- rust-analyer options
 }
 
 require('rust-tools').setup(opts)

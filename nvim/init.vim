@@ -52,12 +52,13 @@ Plug 'tpope/vim-unimpaired'
 
 Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-ui-select.nvim'
+Plug 'folke/trouble.nvim'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -66,7 +67,7 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+" Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground', { 'on': 'TSPlaygroudToggle' }
@@ -96,3 +97,10 @@ lua require("config.telescope")
 lua require("config.treesitter")
 lua require("config.truezen")
 
+lua << EOF
+  require("trouble").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+EOF

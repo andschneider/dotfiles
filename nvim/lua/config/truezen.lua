@@ -1,58 +1,45 @@
 local true_zen = require("true-zen")
 
 true_zen.setup({
-    ui = {
-        bottom = {
-            laststatus = 0,
-            ruler = false,
-            showmode = false,
-            showcmd = false,
-            cmdheight = 1
-        },
-        top = {showtabline = 0},
-        left = {number = false, relativenumber = false, signcolumn = "no"}
-    },
     modes = {
         ataraxis = {
-            left_padding = 32,
-            right_padding = 32,
-            top_padding = 1,
-            bottom_padding = 1,
-            ideal_writing_area_width = {0},
-            auto_padding = true,
-            keep_default_fold_fillchars = true,
-            custom_bg = {"", ""},
-            bg_configuration = true,
-	    quit = "untoggle",
-	    ignore_floating_windows = true,
-            affected_higroups = {
-                NonText = true,
-                FoldColumn = true,
-                ColorColumn = true,
-                VertSplit = true,
-                StatusLine = true,
-                StatusLineNC = true,
-                SignColumn = true,
-            }
+	    shade = "dark",
+	    backdrop = 0,
+            minimum_writing_area = {
+		width = 100,
+		height = 150,
+	    },
+	    quit_untoggles = true,
+            padding = {
+		left = 52,
+		right = 52,
+		top = 0,
+		bottom = 0,
+	    },
+            callbacks = {
+                open_pre = nil,
+                open_pos = nil,
+                close_pre = nil,
+                close_pos = nil
+	    }
         },
-        focus = {margin_of_error = 5, focus_method = "experimental"}
+        focus = {
+            callbacks = {
+                open_pre = nil,
+                open_pos = nil,
+                close_pre = nil,
+                close_pos = nil
+	    },
+        }
     },
     integrations = {
-        vim_gitgutter = true,
-        galaxyline = false,
         tmux = false,
-        gitsigns = false,
-        nvim_bufferline = false,
-        limelight = false,
-        vim_airline = false,
-        vim_powerline = false,
-        vim_signify = false,
-        express_line = false
-    },
-    misc = {
-        on_off_commands = true,
-        ui_elements_commands = false,
-        cursor_by_mode = false
+        twilight = false,
+        lualine = false,
+	kitty = {
+            enabled = false,
+	    font = "+3",
+        }
     }
 })
 
