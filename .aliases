@@ -94,6 +94,13 @@ alias cy='cargo clippy'
 alias cr='cargo run'
 alias cb='cargo build'
 alias cbr='cargo build --release'
+function cts() {
+  if [[ -z "$1" ]] ; then
+    cargo test -- --show-output
+  else
+    cargo test $1 -- --show-output
+  fi
+}
 
 # general
 alias update='sudo apt update && sudo apt upgrade -y'
