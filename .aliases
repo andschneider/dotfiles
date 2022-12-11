@@ -101,6 +101,13 @@ function cts() {
     cargo test $1 -- --show-output
   fi
 }
+function ctse() {
+  if [[ -n "$1" ]] ; then
+    cargo test $1 -- --show-output --exact
+  else
+    echo "need to supply a test name"
+  fi
+}
 
 # general
 alias update='sudo apt update && sudo apt upgrade -y'
