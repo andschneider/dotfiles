@@ -3,7 +3,8 @@ local cmp = require "cmp"
 cmp.setup {
   snippet = {
     expand = function(args)
-      require("luasnip").lsp_expand(args.body)
+      -- Rust Analyzer completions can contain placeholders; use Neovim to expand them.
+      vim.snippet.expand(args.body)
     end,
   },
   window = {
@@ -16,32 +17,21 @@ cmp.setup {
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.abort(),
     ["<CR>"] = cmp.mapping.confirm { select = true }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    -- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#luasnip
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      elseif has_words_before() then
-        cmp.complete()
       else
         fallback()
       end
-    end, { "i", "s" }),
+    end, { "i" }),
 
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
       else
         fallback()
       end
-    end, { "i", "s" }),
+    end, { "i" }),
   },
-  sources = cmp.config.sources({ { name = "nvim_lsp" }, { name = "luasnip" } }, { { name = "buffer" } }),
+  sources = cmp.config.sources({ { name = "nvim_lsp" } }, { { name = "buffer" } }),
 }
-
--- Setup lspconfig.
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require("lspconfig")["rust_analyzer"].setup { capabilities = capabilities }

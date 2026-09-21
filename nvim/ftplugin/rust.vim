@@ -1,11 +1,20 @@
-let g:rustfmt_autosave = 1 " run rustfmt on file save
-set colorcolumn=100        " add bar at 100 character width
+" Rust filetype plugin
+" rustaceanvim handles most Rust LSP features automatically
 
-:nnoremap <leader>t :RustTest<CR> " run a test if its under cursor
+" Enable inlay hints by default
+lua vim.lsp.inlay_hint.enable(true)
 
-" turn on inlay hints manually as they don't show up automatically on file open
-:nnoremap <silent> <leader>h :RustSetInlayHints<CR>
-:nnoremap <silent> <leader>ht :RustUnsetInlayHints<CR>
+" Auto-format with rustfmt on save
+let g:rustfmt_autosave = 1
 
-:nnoremap <silent> <F5> :RustRunnables<CR> " open runnables in telescope
-:nnoremap <silent> <leader>oc :RustOpenCargo<CR>
+" Add bar at 100 character width for Rust files
+set colorcolumn=100
+
+" Run a test if cursor is on test function
+:nnoremap <leader>t :RustLsp testables<CR>
+
+" Open runnables picker
+:nnoremap <silent> <F5> :RustLsp runnables<CR>
+
+" Open Cargo.toml
+:nnoremap <silent> <leader>oc :RustLsp openCargo<CR>

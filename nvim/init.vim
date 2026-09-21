@@ -27,7 +27,7 @@ augroup END
 
 " STATUS LINE
 set laststatus=2
-set statusline+=%#GruvboxAquaSign#
+set statusline=%#GruvboxAquaSign#
 set statusline+=\ [%n]    " buffer number
 set statusline+=\ %M      " modified
 set statusline+=\ %f      " path
@@ -38,42 +38,9 @@ set statusline+=%=        " right side settings below:
 set statusline+=\ %c:%l   " column number : line number
 set statusline+=\ %3p%%   " percentage through file
 
-call plug#begin()
-Plug 'airblade/vim-gitgutter'
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'Pocco81/TrueZen.nvim'
-Plug 'sindrets/diffview.nvim'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-
-Plug 'rust-lang/rust.vim'
-Plug 'simrat39/rust-tools.nvim'
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-ui-select.nvim'
-Plug 'folke/trouble.nvim'
-
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'L3MON4D3/LuaSnip'
-Plug 'saadparwaiz1/cmp_luasnip'
-" Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
-
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/playground', { 'on': 'TSPlaygroudToggle' }
-
-Plug 'morhetz/gruvbox'
-call plug#end()
+" Load lazy.nvim plugin specifications
+lua require("lazy-setup")
+lua require("plugin.diagnostics")
 
 filetype plugin indent on
 
@@ -87,14 +54,6 @@ set background=dark
 " Highlight whitespace in markdown files, though stripping remains disabled by the blacklist
 :autocmd FileType markdown EnableWhitespace
 
-" Load configurations
+" Load keymaps (can load early since it doesn't depend on plugins)
 lua require("custom.keymaps")
-lua require("plugin.cmp")
-lua require("plugin.lspconfig")
-lua require("plugin.nvimtree")
-lua require("plugin.rust_tools")
-lua require("plugin.telescope")
-lua require("plugin.treesitter")
-lua require("plugin.trouble")
-lua require("plugin.truezen")
 
